@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    
+    <div id="v1">
+        <ul>
+            <li>{{user}} <a>删除</a></li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        // view 分析视图  data methods
+        let user={
+            name:"张三"
+        }
+
+        // 开发过程中，并不是所有的值都需要放在data中，
+        let vm=new Vue({
+            el:"#v1",
+            // vue的双向数据绑定是如何实现
+            // 把需要的双向数据绑定的数据放在data中
+            // vue  的compiler 会劫持data的每个数据交给 [es6 proxy | Object.defineProperty] 动态添加setter getter 
+            //通过setter给每个数据添加observe【dirty checking】
+      
+                data:{
+                    user:"张三",
+                    _title:"用户列表",
+                    list:[
+                        {
+                            name:"张三"
+                        }
+                    ]
+                },
+                methods:{  //把页面上所有交互的事件或者方法都放在methods
+
+                    show(){
+                        this.user="赵6"
+                        console.log("show()")
+                    },
+                    hide(){
+
+                    }
+
+                }
+
+
+        })
+
+        vm.show()
+        //只修改data，不会dirty  checking--》renderer
+        // vm.user="王五"
+        // 强制更新view react
+        //vm.$forceUpdate()
+        console.log(vm.user)
+
+    </script>
+</body>
+</html>

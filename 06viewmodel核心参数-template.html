@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue视图的三种创建方式</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- 定义viewmodel中视图的第一种方式 -->
+        {{1+1}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+
+        new Vue({
+            el:"#app",
+            data:{
+                tilte:"hello world"
+            },
+            //template string-->js node vnode
+            template:`
+            
+                <div>
+                    <h1>{{tilte}}</h1>
+                    <h1>hello world</h1>
+            `
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

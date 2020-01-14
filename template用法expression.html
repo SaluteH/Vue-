@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="v1">
+        <h1>loading.....</h1>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        // vim ci cd pipeline
+        //模板表达式：用来绑定data，methods中的数据，方法
+        //<%ejs%><? ?>{{ }}python go
+        // interpolation expression 插值表达式
+        new Vue({
+            el:"#v1",
+            data:{
+                msg:"hello vue!"
+            },
+            template:`
+                <div>
+                    <h1>{{1+1>2?"ok":"error"}}</h1>
+                     <h2>{{show()}}</h2>
+                </div>
+                
+            `,
+            methods:{
+                show(){
+                    return this.msg
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
